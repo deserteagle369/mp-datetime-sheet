@@ -46,6 +46,16 @@ npm install mp-datetime-sheet
 ```
 
 2. 微信开发者工具菜单「工具 → 构建 npm」
+
+   若 `package.json` 在项目根目录、小程序代码在 `miniprogram/` 子目录，需在 `project.config.json` 的 `setting` 中配置：
+
+   ```json
+   "packNpmManually": true,
+   "packNpmRelationList": [
+     { "packageJsonPath": "./package.json", "miniprogramNpmDistDir": "./miniprogram/" }
+   ]
+   ```
+
 3. 页面 `json` 注册：
 
 ```json
