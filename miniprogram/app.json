@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/demo/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "日期时间选择器",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f7"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

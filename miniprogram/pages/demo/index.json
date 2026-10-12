@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "预约选时演示",
+  "usingComponents": {
+    "datetime-sheet": "/components/datetime-sheet/index"
+  }
+}

@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">日历 + 表盘时间选择器</view>
+    <view class="hero-desc">底部弹出 · 月历选日 · 24 小时表盘选时 · 无文案可复用</view>
+  </view>
+
+  <view class="card">
+    <view class="label">日期时间</view>
+    <view class="value-row" bindtap="openDateTime">
+      <text class="value">{{datetimeText || '点击选择日期和时间'}}</text>
+      <text class="chev">›</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="label">仅日期</view>
+    <view class="value-row" bindtap="openDate">
+      <text class="value">{{date || '点击选择日期'}}</text>
+      <text class="chev">›</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="label">仅时间</view>
+    <view class="value-row" bindtap="openTime">
+      <text class="value">{{time || '点击选择时间'}}</text>
+      <text class="chev">›</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="label">主题色</view>
+    <view class="swatches">
+      <view
+        wx:for="{{themes}}"
+        wx:key="*this"
+        class="swatch {{themeColor === item ? 'on' : ''}}"
+        style="background: {{item}}"
+        data-color="{{item}}"
+        bindtap="pickTheme"
+      />
+    </view>
+  </view>
+
+  <view class="tips">
+    <view>用法：复制 components/datetime-sheet 到你的项目，页面 json 注册后即可使用。</view>
+    <view>confirm 返回：date / time / datetime</view>
+    <view>定制约赛/订场/报名小程序：见仓库 README「合作与定制」</view>
+  </view>
+
+  <datetime-sheet
+    show="{{dtShow}}"
+    mode="{{dtMode}}"
+    date-value="{{date}}"
+    time-value="{{time}}"
+    min-date="{{minDate}}"
+    step-minutes="{{5}}"
+    theme-color="{{themeColor}}"
+    bind:confirm="onDtConfirm"
+    bind:close="onDtClose"
+  />
+</view>

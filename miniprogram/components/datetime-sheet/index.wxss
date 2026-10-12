@@ -1,0 +1,252 @@
+.dt-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(21, 17, 32, 0.45);
+  z-index: 3000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.dt-sheet {
+  width: 100%;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 24rpx 32rpx calc(24rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+
+.dt-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 8rpx 8rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.dt-head-date,
+.dt-head-time {
+  color: #888;
+  font-size: 32rpx;
+}
+
+.dt-head-date.on,
+.dt-head-time.on {
+  color: var(--dt-primary, #6B37E5);
+  font-weight: 600;
+}
+
+.dt-head-time {
+  font-size: 48rpx;
+  font-variant-numeric: tabular-nums;
+}
+
+.dt-month-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 8rpx 8rpx;
+}
+
+.dt-today,
+.dt-today-spacer {
+  width: 64rpx;
+  height: 64rpx;
+  flex-shrink: 0;
+}
+
+.dt-today {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dt-today-ring {
+  width: 36rpx;
+  height: 36rpx;
+  border: 4rpx solid var(--dt-primary, #6B37E5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.dt-today-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--dt-primary, #6B37E5);
+}
+
+.dt-today.disabled {
+  opacity: 0.3;
+}
+
+.dt-month-nav {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin: 0 auto;
+}
+
+.dt-arrow {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 48rpx;
+  color: #353535;
+}
+
+.dt-month-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #353535;
+  min-width: 200rpx;
+  text-align: center;
+}
+
+.dt-week-row,
+.dt-week {
+  display: flex;
+}
+
+.dt-week-row {
+  padding: 12rpx 0;
+}
+
+.dt-weekday,
+.dt-day {
+  width: 14.28%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #808080;
+}
+
+.dt-week-row .sun,
+.dt-day.sun {
+  color: var(--dt-sunday, #e24b4b);
+}
+
+.dt-day {
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.dt-day.muted,
+.dt-day.disabled {
+  color: #c8c8c8;
+}
+
+.dt-day.selected {
+  background: var(--dt-primary, #6B37E5);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.dt-digital {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  padding: 28rpx 0 8rpx;
+  font-variant-numeric: tabular-nums;
+}
+
+.dt-digital-num {
+  font-size: 88rpx;
+  line-height: 1;
+  color: #c8c8c8;
+  font-weight: 500;
+}
+
+.dt-digital-num.on {
+  color: var(--dt-primary, #6B37E5);
+}
+
+.dt-digital-colon {
+  font-size: 88rpx;
+  line-height: 1;
+  color: #c8c8c8;
+  margin: 0 8rpx;
+}
+
+.dt-clock-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8rpx 0 24rpx;
+}
+
+.dt-clock {
+  position: relative;
+  width: 560rpx;
+  height: 560rpx;
+  border-radius: 50%;
+  background: var(--dt-primary-soft, #f4f1fa);
+}
+
+.dt-clock-hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 4rpx;
+  margin-left: -2rpx;
+  background: var(--dt-primary, #6B37E5);
+  transform-origin: center bottom;
+  border-radius: 4rpx;
+}
+
+.dt-clock-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16rpx;
+  height: 16rpx;
+  margin: -8rpx 0 0 -8rpx;
+  border-radius: 50%;
+  background: var(--dt-primary, #6B37E5);
+}
+
+.dt-hour {
+  position: absolute;
+  width: 64rpx;
+  height: 64rpx;
+  margin-left: -32rpx;
+  margin-top: -32rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #353535;
+  border-radius: 50%;
+}
+
+.dt-hour.inner {
+  font-size: 24rpx;
+  color: #808080;
+}
+
+.dt-hour.on {
+  background: var(--dt-primary, #6B37E5);
+  color: #fff;
+  font-weight: 600;
+}
+
+.dt-confirm {
+  margin: 16rpx 24rpx 8rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 44rpx;
+  font-weight: 600;
+  background: var(--dt-primary, #6B37E5);
+  border-radius: 44rpx;
+}
+
+.dt-confirm:active {
+  opacity: 0.85;
+}

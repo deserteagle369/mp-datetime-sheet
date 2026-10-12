@@ -1,0 +1,9 @@
+{
+  "version": "2.0",
+  "envId": "",
+  "framework": {
+    "name": "miniprogram",
+    "plugins": {}
+  },
+  "description": "微信小程序日历表盘日期时间选择器模板（可嵌入任意小程序项目）"
+}

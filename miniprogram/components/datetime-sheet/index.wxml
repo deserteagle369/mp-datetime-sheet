@@ -1,0 +1,103 @@
+<view wx:if="{{show}}" class="dt-mask" style="{{themeStyle}}" catchtap="onMask" catchtouchmove="noop">
+  <view class="dt-sheet" catchtap="noop">
+    <view class="dt-head">
+      <view
+        class="dt-head-date {{tab === 'date' ? 'on' : ''}}"
+        wx:if="{{mode !== 'time'}}"
+        data-tab="date"
+        bindtap="switchTab"
+      >{{selectedDate}}</view>
+      <view
+        class="dt-head-time {{tab === 'time' ? 'on' : ''}}"
+        wx:if="{{mode !== 'date'}}"
+        data-tab="time"
+        bindtap="switchTab"
+      >{{timeText}}</view>
+    </view>
+
+    <block wx:if="{{tab === 'date'}}">
+      <view class="dt-month-bar">
+        <view class="dt-today {{todayDisabled ? 'disabled' : ''}}" bindtap="goToday">
+          <view class="dt-today-ring"><view class="dt-today-dot"></view></view>
+        </view>
+        <view class="dt-month-nav">
+          <view class="dt-arrow" bindtap="prevMonth">‹</view>
+          <text class="dt-month-title">{{monthTitle}}</text>
+          <view class="dt-arrow" bindtap="nextMonth">›</view>
+        </view>
+        <view class="dt-today-spacer"></view>
+      </view>
+      <view class="dt-week-row">
+        <view
+          class="dt-weekday {{item.isSunday ? 'sun' : ''}}"
+          wx:for="{{weekHeader}}"
+          wx:key="day"
+        >{{item.label}}</view>
+      </view>
+      <view class="dt-weeks">
+        <view class="dt-week" wx:for="{{weeks}}" wx:for-item="week" wx:key="id">
+          <view
+            class="dt-day {{day.inMonth ? '' : 'muted'}} {{day.disabled ? 'disabled' : ''}} {{day.isSunday && day.inMonth ? 'sun' : ''}} {{day.ymd === selectedDate ? 'selected' : ''}}"
+            wx:for="{{week.days}}"
+            wx:for-item="day"
+            wx:key="ymd"
+            data-ymd="{{day.ymd}}"
+            bindtap="selectDay"
+          >{{day.day}}</view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="dt-digital">
+        <text
+          class="dt-digital-num {{clockFace === 'hour' ? 'on' : ''}}"
+          data-face="hour"
+          catchtap="switchClockFace"
+        >{{hourText}}</text>
+        <text class="dt-digital-colon">:</text>
+        <text
+          class="dt-digital-num {{clockFace === 'minute' ? 'on' : ''}}"
+          data-face="minute"
+          catchtap="switchClockFace"
+        >{{minuteText}}</text>
+      </view>
+      <view class="dt-clock-wrap">
+        <view class="dt-clock">
+          <view class="dt-clock-hand" style="height: {{handLen}}; transform: rotate({{handDeg}}deg);"></view>
+          <view class="dt-clock-dot"></view>
+          <block wx:if="{{clockFace === 'hour'}}">
+            <view
+              class="dt-hour inner {{item.hour === selectedHour ? 'on' : ''}}"
+              wx:for="{{hoursInner}}"
+              wx:key="label"
+              style="left: {{item.left}}%; top: {{item.top}}%;"
+              data-hour="{{item.hour}}"
+              bindtap="selectHour"
+            >{{item.label}}</view>
+            <view
+              class="dt-hour outer {{item.hour === selectedHour ? 'on' : ''}}"
+              wx:for="{{hoursOuter}}"
+              wx:key="label"
+              style="left: {{item.left}}%; top: {{item.top}}%;"
+              data-hour="{{item.hour}}"
+              bindtap="selectHour"
+            >{{item.label}}</view>
+          </block>
+          <block wx:else>
+            <view
+              class="dt-hour outer {{item.minute === selectedMinute ? 'on' : ''}}"
+              wx:for="{{minuteMarks}}"
+              wx:key="label"
+              style="left: {{item.left}}%; top: {{item.top}}%;"
+              data-minute="{{item.minute}}"
+              bindtap="selectMinute"
+            >{{item.label}}</view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <view class="dt-confirm" bindtap="onConfirm">✓</view>
+  </view>
+</view>
