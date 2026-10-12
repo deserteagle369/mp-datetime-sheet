@@ -1,0 +1,36 @@
+{
+  "name": "mp-datetime-sheet",
+  "version": "1.0.0",
+  "description": "微信小程序日期时间选择器：底部弹出，月历选日期 + 24 小时表盘选时间，适合约赛/订场/报名预约",
+  "miniprogram": "miniprogram/components/datetime-sheet",
+  "files": [
+    "miniprogram/components/datetime-sheet"
+  ],
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "weapp",
+    "datetime-picker",
+    "date-picker",
+    "time-picker",
+    "calendar",
+    "clock",
+    "booking",
+    "微信小程序",
+    "日期选择",
+    "时间选择"
+  ],
+  "author": "deserteagle369 <deserteagle369@163.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/deserteagle369/mp-datetime-sheet#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deserteagle369/mp-datetime-sheet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deserteagle369/mp-datetime-sheet/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}

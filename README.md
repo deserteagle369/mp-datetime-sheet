@@ -37,6 +37,27 @@
 3. 编译后打开「预约选时演示」页，分别试：日期时间 / 仅日期 / 仅时间  
 ## 嵌入你的项目（约 1 分钟）
 
+### 方式一：npm 安装（推荐）
+
+1. 在小程序项目根目录（`package.json` 所在处）安装：
+
+```bash
+npm install mp-datetime-sheet
+```
+
+2. 微信开发者工具菜单「工具 → 构建 npm」
+3. 页面 `json` 注册：
+
+```json
+{
+  "usingComponents": {
+    "datetime-sheet": "mp-datetime-sheet/index"
+  }
+}
+```
+
+### 方式二：复制源码
+
 1. 复制 `miniprogram/components/datetime-sheet/` → 你的小程序 `components/datetime-sheet/`
 2. 页面 `json` 注册：
 
@@ -48,7 +69,7 @@
 }
 ```
 
-3. 页面使用：
+### 页面使用（两种方式相同）
 
 ```html
 <datetime-sheet
